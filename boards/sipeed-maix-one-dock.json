@@ -13,7 +13,8 @@
     "frameworks": [
         "kendryte-standalone-sdk",
         "kendryte-freertos-sdk",
-        "arduino"
+        "arduino",
+		"rt-thread-sdk"
     ],
     "name": "Sipeed MAIX ONE DOCK",
     "upload": {
