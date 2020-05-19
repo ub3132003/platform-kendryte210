@@ -6,10 +6,10 @@ from SCons.Script import DefaultEnvironment
 
 env = DefaultEnvironment()
 
-FRAMEWORK_DIR = env.PioPlatform().get_package_dir("framework-rt-thread-sdk")
+FRAMEWORK_DIR = env.PioPlatform().get_package_dir("framework-rt-thread")
 assert FRAMEWORK_DIR and isdir(FRAMEWORK_DIR)
 
-env.SConscript("_bare.py", exports="env")
+env.SConscript("rtconfig.py", exports="env")
 
 env.Append(
 
@@ -29,19 +29,10 @@ env.Append(
     ],
 
     CPPPATH = [
-        join(FRAMEWORK_DIR, "lib", "bsp"),
-        join(FRAMEWORK_DIR, "lib", "bsp", "include"),
-        join(FRAMEWORK_DIR, "lib", "drivers"),
-        join(FRAMEWORK_DIR, "lib", "drivers", "include"),
-        join(FRAMEWORK_DIR, "lib", "freertos"),
-        join(FRAMEWORK_DIR, "lib", "freertos", "include"),
-        join(FRAMEWORK_DIR, "lib", "freertos", "portable"),
-        join(FRAMEWORK_DIR, "lib", "freertos", "conf"),
-        join(FRAMEWORK_DIR, "lib", "utils", "include"),
-        join(FRAMEWORK_DIR, "lib", "nncase"),
-        join(FRAMEWORK_DIR, "lib", "nncase", "include"),
-        join(FRAMEWORK_DIR, "lib", "nncase", "runtime"),
-        join(FRAMEWORK_DIR, "third_party", "xtl", "include")
+        join(FRAMEWORK_DIR,  "bsp","k210"),
+        join(FRAMEWORK_DIR, "bsp","k210", "bsp", "include"),
+        join(FRAMEWORK_DIR, "bsp","k210", "drivers"),
+        join(FRAMEWORK_DIR, "bsp","k210", "drivers", "include"),
     ],
 
     LIBPATH = [

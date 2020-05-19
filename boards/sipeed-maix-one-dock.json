@@ -14,7 +14,7 @@
         "kendryte-standalone-sdk",
         "kendryte-freertos-sdk",
         "arduino",
-		"rt-thread-sdk"
+		"rt-thread"
     ],
     "name": "Sipeed MAIX ONE DOCK",
     "upload": {

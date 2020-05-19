@@ -16,10 +16,11 @@
 from platformio.managers.platform import PlatformBase
 
 
-class Kendryte210Platform(PlatformBase):
+class K210rtthreadPlatform(PlatformBase):
 
     def get_boards(self, id_=None):
         result = PlatformBase.get_boards(self, id_)
+        print(111,result)
         if not result:
             return result
         if id_:
