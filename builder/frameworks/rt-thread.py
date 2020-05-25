@@ -1,5 +1,5 @@
-
-
+import os
+import sys
 from os.path import isdir, join
 
 from SCons.Script import DefaultEnvironment
@@ -9,7 +9,41 @@ env = DefaultEnvironment()
 FRAMEWORK_DIR = env.PioPlatform().get_package_dir("framework-rt-thread")
 assert FRAMEWORK_DIR and isdir(FRAMEWORK_DIR)
 
-env.SConscript("rtconfig.py", exports="env")
+sys.path.append(FRAMEWORK_DIR+"\\bsp"+"\\k210")
+sys.path.append(FRAMEWORK_DIR+"\\tools")
+import rtconfig
+from rtconfig import RTT_ROOT
+
+sys.path = sys.path + [os.path.join(RTT_ROOT, 'tools')]
+from building import *
+
+DefaultEnvironment(tools=[])
+env = Environment(tools = ['mingw'],
+    AS = rtconfig.AS, ASFLAGS = rtconfig.AFLAGS,
+    CC = rtconfig.CC, CCFLAGS = rtconfig.CFLAGS,
+    CXX = rtconfig.CXX, CXXFLAGS = rtconfig.CXXFLAGS,
+    AR = rtconfig.AR, ARFLAGS = '-rc',
+    LINK = rtconfig.LINK, LINKFLAGS = rtconfig.LFLAGS)
+env.PrependENVPath('PATH', rtconfig.EXEC_PATH)
+env['ASCOM'] = env['ASPPCOM']
+
+Export('RTT_ROOT')
+Export('rtconfig')
+
+# prepare building environment
+objs = PrepareBuilding(env, RTT_ROOT, has_libcpu = False)
+
+stack_size = 4096
+stack_lds = open('link_stacksize.lds', 'w')
+if GetDepend('__STACKSIZE__'): stack_size = GetDepend('__STACKSIZE__')
+stack_lds.write('__STACKSIZE__ = %d;' % stack_size)
+stack_lds.close()
+
+# make a building
+DoBuilding(TARGET, objs)
+
+
+env.SConscript("_bare.py", exports="env")
 
 env.Append(
 
@@ -46,7 +80,7 @@ env.Append(
 )
 
 if not env.BoardConfig().get("build.ldscript", ""):
-    env.Replace(LDSCRIPT_PATH=join(FRAMEWORK_DIR, "lds", "kendryte.ld"))
+    env.Replace(LDSCRIPT_PATH=join(FRAMEWORK_DIR, "bsp","k210", "link.lds"))
 
 #
 # Target: Build Core Library

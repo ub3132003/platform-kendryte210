@@ -26,7 +26,7 @@
       "toolchain-riscv-none-gcc": [
         {
           "url": "https://github.com/ilg-archived/riscv-none-gcc/releases/download/v8.2.0-2.2-20190521/gnu-mcu-eclipse-riscv-none-gcc-8.2.0-2.2-20190521-0004-win64.zip",
-          "sha1": "d2e552ef6c44065078665f89f4d0b5e8e5d73332",
+          "sha1": "9a3ef3f322418e4d0fd640588a9dadf5f13ec995",
           "version": "8.2.0",
           "system": [
               "windows_x86_64",
@@ -42,7 +42,7 @@
       ],
       "tool-rt-thread-env":[
         {
-            "sha1": "68ee5642f4489856fefc5ac4187f90514ceb30e4",
+            "sha1": "b27cec4badd6cf39b5946b76dfe846576cc73d78",
             "system": "*",
             "url": "http://117.143.63.254:9012/www/aozima/env_released_1.2.0.7z",
             "version": "1.2.0"
@@ -51,7 +51,7 @@
       "framework-rt-thread": [
         {
             "url": "https://github.com/RT-Thread/rt-thread/archive/v4.0.2.zip",
-            "sha1": "70e8d4e83e1339e939b5cd4893a48ce538431d50",
+            "sha1": "034aed86887f50a1d57811a94ff4e22f6643b592",
             "version": "4.0.2",
             "system": "*"
           },

@@ -4,21 +4,22 @@ from os.path import join
 from SCons.Script import (ARGUMENTS, COMMAND_LINE_TARGETS, AlwaysBuild,
                           Builder, Default, DefaultEnvironment)
 
-
+join(r'C:\Users\sun\.platformio\packages\toolchain-riscv-none-gcc\riscv-embedded-gcc\8.2.0-2.2-20190521-0004\bin')
 env = DefaultEnvironment()
 platform = env.PioPlatform()
 board = env.BoardConfig()
-
+PREFIX  = 'riscv-none-embed-'
 env.Replace(
-    AR="riscv64-unknown-elf-ar",
-    AS="riscv64-unknown-elf-as",
-    CC="riscv64-unknown-elf-gcc",
-    GDB="riscv64-unknown-elf-gdb",
-    CXX="riscv64-unknown-elf-g++",
-    OBJCOPY="riscv64-unknown-elf-objcopy",
-    RANLIB="riscv64-unknown-elf-ranlib",
-    SIZETOOL="riscv64-unknown-elf-size",
-
+    # toolchains
+    
+    CC      = PREFIX + 'gcc',
+    AR      = PREFIX + 'ar',
+    AS      = PREFIX + 'gcc',
+    GDB     = PREFIX + 'gdb',
+    CXX     = PREFIX + 'g++',
+    OBJCOPY = PREFIX + 'objcopy',
+    RANLIB  = PREFIX + 'ranlib',
+    SIZETOOL= PREFIX + "size",
     ARFLAGS=["rcs"],
 
     SIZEPRINTCMD='$SIZETOOL -d $SOURCES',
