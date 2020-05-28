@@ -8,7 +8,7 @@ env = DefaultEnvironment()
 
 FRAMEWORK_DIR = env.PioPlatform().get_package_dir("framework-rt-thread")
 assert FRAMEWORK_DIR and isdir(FRAMEWORK_DIR)
-
+os.chdir(FRAMEWORK_DIR+"\\bsp"+"\\k210")
 sys.path.append(FRAMEWORK_DIR+"\\bsp"+"\\k210")
 sys.path.append(FRAMEWORK_DIR+"\\tools")
 import rtconfig

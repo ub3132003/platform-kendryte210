@@ -5,6 +5,9 @@ from SCons.Script import (ARGUMENTS, COMMAND_LINE_TARGETS, AlwaysBuild,
                           Builder, Default, DefaultEnvironment)
 
 join(r'C:\Users\sun\.platformio\packages\toolchain-riscv-none-gcc\riscv-embedded-gcc\8.2.0-2.2-20190521-0004\bin')
+#sys.path.append(FRAMEWORK_DIR+"\\bsp"+"\\k210")
+join(r'C:\Users\sun\.platformio\packages\platform-rt-thread\bsp\k210')
+sys.path.append(r'C:\Users\sun\.platformio\packages\platform-rt-thread\bsp\k210')
 env = DefaultEnvironment()
 platform = env.PioPlatform()
 board = env.BoardConfig()

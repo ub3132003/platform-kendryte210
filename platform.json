@@ -25,7 +25,7 @@
     {
       "toolchain-riscv-none-gcc": [
         {
-          "url": "https://github.com/ilg-archived/riscv-none-gcc/releases/download/v8.2.0-2.2-20190521/gnu-mcu-eclipse-riscv-none-gcc-8.2.0-2.2-20190521-0004-win64.zip",
+          "url": "http://data.arabbit.xyz/gnu-mcu-eclipse-riscv-none-gcc-8.2.0-2.2-20190521-0004-win64.zip",
           "sha1": "9a3ef3f322418e4d0fd640588a9dadf5f13ec995",
           "version": "8.2.0",
           "system": [
@@ -34,7 +34,7 @@
           ]
         },
         {
-          "url": "https://github.com/ilg-archived/riscv-none-gcc/releases/download/v8.2.0-2.2-20190521/gnu-mcu-eclipse-riscv-none-gcc-8.2.0-2.2-20190521-0004-centos64.tgz",
+          "url": "http://data.arabbit.xyz/gnu-mcu-eclipse-riscv-none-gcc-8.2.0-2.2-20190521-0004-centos64.tgz",
           "sha1": "",
           "version": "8.2.0",
           "system": "linux_centos64"
@@ -44,13 +44,13 @@
         {
             "sha1": "b27cec4badd6cf39b5946b76dfe846576cc73d78",
             "system": "*",
-            "url": "http://117.143.63.254:9012/www/aozima/env_released_1.2.0.7z",
+            "url": "http://data.arabbit.xyz/env_released_1.2.0.7z",
             "version": "1.2.0"
           }
       ],
       "framework-rt-thread": [
         {
-            "url": "https://github.com/RT-Thread/rt-thread/archive/v4.0.2.zip",
+            "url": "http://data.arabbit.xyz/rt-thread-4.0.2.zip",
             "sha1": "034aed86887f50a1d57811a94ff4e22f6643b592",
             "version": "4.0.2",
             "system": "*"
